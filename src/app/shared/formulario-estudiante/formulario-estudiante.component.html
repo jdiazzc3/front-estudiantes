@@ -1,0 +1,39 @@
+<div class="formulario-container">
+  <h3>{{ modoEdicion ? 'Editar Estudiante' : 'Nuevo Estudiante' }}</h3>
+  
+  <form (ngSubmit)="onSubmit()">
+    <div class="campo">
+      <label for="nombre">Nombre:</label>
+      <input
+        type="text"
+        id="nombre"
+        [(ngModel)]="formulario.nombre"
+        name="nombre"
+        placeholder="Ingrese el nombre"
+        required
+        autofocus
+      />
+    </div>
+
+    <div class="campo">
+      <label for="apellido">Apellido:</label>
+      <input
+        type="text"
+        id="apellido"
+        [(ngModel)]="formulario.apellido"
+        name="apellido"
+        placeholder="Ingrese el apellido"
+        required
+      />
+    </div>
+
+    <div class="botones">
+      <button type="submit" class="btn btn-primario">
+        {{ modoEdicion ? 'Actualizar' : 'Crear' }}
+      </button>
+      <button type="button" class="btn btn-secundario" (click)="onCancelar()">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>
