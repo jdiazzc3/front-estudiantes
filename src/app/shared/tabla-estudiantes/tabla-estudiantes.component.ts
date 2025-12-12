@@ -84,10 +84,12 @@ export class TablaEstudiantesComponent implements OnInit {
           }
           this.cerrarModal();
           this.cargando = false;
+          this.cdr.detectChanges();
         },
         error: (err) => {
           this.error = 'Error al actualizar el estudiante';
           this.cargando = false;
+          this.cdr.detectChanges();
           console.error(err);
         }
       });
@@ -98,10 +100,12 @@ export class TablaEstudiantesComponent implements OnInit {
           this.estudiantes.push(response.data);
           this.cerrarModal();
           this.cargando = false;
+          this.cdr.detectChanges();
         },
         error: (err) => {
           this.error = 'Error al crear el estudiante';
           this.cargando = false;
+          this.cdr.detectChanges();
           console.error(err);
         }
       });
@@ -118,10 +122,12 @@ export class TablaEstudiantesComponent implements OnInit {
       next: () => {
         this.estudiantes = this.estudiantes.filter(e => e.id !== id);
         this.cargando = false;
+        this.cdr.detectChanges();
       },
       error: (err) => {
         this.error = 'Error al eliminar el estudiante';
         this.cargando = false;
+        this.cdr.detectChanges();
         console.error(err);
       }
     });
